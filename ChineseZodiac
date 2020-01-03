@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class ChineseZodiac {
+
+	public static void main(String[] args) {
+		//create scanner
+		Scanner input = new Scanner(System.in);
+		
+		//ask for the year
+		System.out.print("Enter a year: ");
+		int year = input.nextInt();
+		System.out.println("---------------------");
+		
+		//create a switch
+		switch (year % 12 ) {
+		case 0: System.out.println("Zodiac Animal: Monkey \n"
+				+ "Personality Traits: Sharp, smart, curiosity \n"
+				+ "Best Matches: Ox, Rabbit"); break;
+		case 1: System.out.println("Zodiac Animal: Rooster \n"
+				+ "Personality Traits: Observant, hardworking, courageous \n"
+				+ "Best Matches: Ox, Snake"); break;
+		case 2: System.out.println("Zodiac Animal: Dog \n"
+				+ "Personality Traits: Lovely, honest, prudent \n"
+				+ "Best Matches: Rabbit"); break;
+		case 3: System.out.println("Zodiac Animal: Pig \n"
+				+ "Personality Traits: Compassionate, generous, diligent \n"
+				+ "Best Matches: Goat, Tiger, Rabbit"); break;
+		case 4: System.out.println("Zodiac Animal: Rat \n"
+				+ "Personality Traits: Quick-witted, resourceful, versatile, kind \n"
+				+ "Best Matches: Ox, Dragon, Rabbit"); break;
+		case 5: System.out.println("Zodiac Animal: Ox \n"
+				+ "Personality Traits: Diligent, dependable, strong, determined \n"
+				+ "Best Matches: Rat, Monkey, or Rooster"); break;
+		case 6: System.out.println("Zodiac Animal: Tiger \n"
+				+ "Personality Traits: Brave, confident, competitive \n"
+				+ "Best Matches: Dragon, Horse, or Pig"); break;
+		case 7: System.out.println("Zodiac Animal: Rabbit \n"
+				+ "Personality Traits: Quiet, elegant, kind, responsible \n"
+				+ "Best Matches: Rat, Goat, Monkey, Dog, Pig"); break;
+		case 8: System.out.println("Zodiac Animal: Dragon \n"
+				+ "Personality Traits: Confident, intelligent, enthusiastic \n"
+				+ "Best Matches: Rat, Tiger or Snake"); break;
+		case 9: System.out.println("Zodiac Animal: Snake \n"
+				+ "Personality Traits: Enigmatic, intelligent, wise \n"
+				+ "Best Matches: Dragon, Rooster"); break;
+		case 10: System.out.println("Zodiac Animal: Horse \n"
+				+ "Personality Traits: Animated, active, energetic \n"
+				+ "Best Matches: Goat, Tiger"); break;
+		case 11: System.out.println("Zodiac Animal: Goat \n"
+				+ "Personality Traits: Calm, gentle, sympathetic \n"
+				+ "Best Matches: Rabbit, Horse, Pig"); break;
+		}
+	}
+}
