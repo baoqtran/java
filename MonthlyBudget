@@ -1,54 +1,47 @@
 /* Build a monthly budget calculator to calculate how much left after
 spending living expenses, e.g. rent, shopping, food
-by BQT 2019 v1
+by BQT 2019 v2 (with update wrong answer still keep same question!)
 */
 import java.text.NumberFormat;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
-public class MonthlyBudget {
+public class MonthlyBudget2 {
+        //Main method to run
+    public static void main(String[] args) {
+        float monthlyIncome = getFloatValue("Enter your monthly income (after tax and insurance)");
+        float monthlyFoods = getFloatValue("Enter monthly cost for food");
+        float monthlyRent = getFloatValue("Enter monthly cost for rent");
+        float monthlyUtilities = getFloatValue("Enter monthly cost for utilities " +
+                "(e.g. gas, phone bills, Internet)");
+        float monthlyHobbies = getFloatValue("Enter monthly cost for shopping and hobbies");
+        float monthlySaving = getFloatValue("Do you plan for saving? (Enter 0 if not)");
+        monthlyExpenses(monthlyIncome, monthlyFoods, monthlyRent, monthlyUtilities,
+                monthlyHobbies, monthlySaving);
+        System.out.println("Thank you for choosing us!");
+    }
 
-   public static void main(String[] args) {
-       //Prompt user input
-       while (true) {
-           try {
-        	   Scanner input = new Scanner(System.in);
-            
-               System.out.println("Enter your monthly income (after tax and insurance): ");
-               float monthlyIncome = input.nextFloat();
-               
-               System.out.println("Enter monthly cost for food: ");
-               float monthlyFoods = input.nextFloat();
+    // Method for get float value only
+    public static float getFloatValue(String questionDescription){
 
-               System.out.println("Enter monthly cost for rent: ");
-               float monthlyRent = input.nextFloat();
-
-               System.out.println("Enter monthly cost for utilities " +
-                       "(e.g. gas, phone bills, Internet): ");
-               float monthlyUtilities = input.nextFloat();
-
-               System.out.println("Enter monthly cost for shopping and hobbies: ");
-               float monthlyHobbies = input.nextFloat();
-
-               System.out.println("Do you plan for saving? (Enter 0 if not): ");
-               float monthlySaving = input.nextFloat();
-               
-               monthlyExpenses(monthlyIncome, monthlyFoods, monthlyRent, 
-            		   monthlyUtilities, monthlyHobbies, monthlySaving);
-               break;
-     
-    	} catch (InputMismatchException exception) {
-    		System.out.println("Please enter number only!");
-    	}
-      }  
-   }
-
-   public static void monthlyExpenses(float monthlyIncome, float monthlyFoods,
-                                      float monthlyRent, float monthlyUtilities,
-                                      float monthlyHobbies, float monthlySaving) {
-       float totalBudgetLeft = monthlyIncome - monthlyFoods - monthlyHobbies - monthlyRent
-               - monthlyUtilities - monthlySaving;
-       System.out.println("Your budget left with: " + NumberFormat.getCurrencyInstance(Locale.US).format(totalBudgetLeft));
-       System.out.println("Thank you for choosing us!");
-   }
+        while (true) {
+            float value;
+            try {
+                Scanner input = new Scanner(System.in);
+                System.out.println(questionDescription+": ");
+                value = input.nextFloat();
+                return value;
+            } catch (InputMismatchException exception) {
+                System.out.println("Please enter number only!");
+            }
+        }
+    }
+    //Method for monthly expenses
+    public static void monthlyExpenses(float monthlyIncome, float monthlyFoods,
+                                       float monthlyRent, float monthlyUtilities,
+                                       float monthlyHobbies, float monthlySaving) {
+        float totalBudgetLeft = monthlyIncome - monthlyFoods - monthlyHobbies - monthlyRent
+                - monthlyUtilities - monthlySaving;
+        System.out.println("Your budget left with: " + NumberFormat.getCurrencyInstance(Locale.US).format(totalBudgetLeft));
+    }
 }
