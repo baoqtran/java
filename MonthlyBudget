@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
-public class MonthlyBudget2 {
+public class MonthlyBudget {
         //Main method to run
     public static void main(String[] args) {
         float monthlyIncome = getFloatValue("Enter your monthly income (after tax and insurance)");
