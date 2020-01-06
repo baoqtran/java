@@ -13,8 +13,8 @@ public class MonthlyBudget {
        while (true) {
            try {
         	   Scanner input = new Scanner(System.in);
-
-        	     System.out.println("Enter your monthly income (after tax and insurance): ");
+            
+               System.out.println("Enter your monthly income (after tax and insurance): ");
                float monthlyIncome = input.nextFloat();
                
                System.out.println("Enter monthly cost for food: ");
