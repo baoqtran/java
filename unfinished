@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class FinalBloodAlcoholCal {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		// Ask gender
+		System.out.print("Your gender (Enter m for Male or f for Female): ");
+		String gender = input.next();
+		double genderConstant;
+		if (gender == "m") {
+			  genderConstant = 0.68;
+		  } else {
+			genderConstant = 0.55;
+		}
+		
+		
+		//Ask weight
+		System.out.print("Enter your weight (in lbs): ");
+		double weightInPounds = input.nextDouble();
+		double weightInGrams = weightInPounds * 454;
+		
+		
+		//Ask alcohol dose %
+		System.out.print("Enter alcohol dose in %(e.g Heineken Beer 5%, enter 5.0): ");
+		double alcoholDose = input.nextDouble();
+		
+		//Ask how many drink
+		System.out.print("How many drink (in ml): ");
+		double amountOfDrink = input.nextDouble();
+		
+		//grams of alcohol consumed
+		double gramsOfAlcoholConsumed = alcoholDose * amountOfDrink;
+		
+		//How many hours?
+		System.out.print("Time since first drink (in hours): ");
+		double afterHours = input.nextDouble();
+		
+		//Calculate BAC original
+		double bloodAlcoholOriginal = (gramsOfAlcoholConsumed / (weightInGrams * genderConstant)) * 100;
+		System.out.println("BAC original: " + bloodAlcoholOriginal);
+		
+		//Elapsed Time
+		double elapsedTime = bloodAlcoholOriginal - (4 * 0.015);
+		System.out.println("BAC after " + afterHours + " hours is " +  elapsedTime);
+	}
+
+}
