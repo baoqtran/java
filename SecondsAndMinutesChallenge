@@ -1,17 +1,20 @@
 //Method overload practice
 //Convert minutes and seconds
 public class SecondsAndMinutesChallenge {
+	private static final String INVALID_VALUE_MESSAGE = "Invalid Value";
+	
 	public static void main(String[] args) {
 		System.out.println(getDurationString(75, 20));
-		System.out.println(getDurationString(75, 0));
+		System.out.println(getDurationString(75, 9));
+		System.out.println(getDurationString(65, 120));
 		System.out.println(getDurationString(150));
 		System.out.println(getDurationString(120));
-
+		System.out.println(getDurationString(-120));
 	}
 	
 	private static String getDurationString(int minutes, int seconds) {
 		if (minutes < 0 || seconds < 0 || seconds > 59) {
-			return "Invalid value";
+			return INVALID_VALUE_MESSAGE;
 		}
 		
 		int hours = minutes / 60;
@@ -37,7 +40,7 @@ public class SecondsAndMinutesChallenge {
 	
 	private static String getDurationString(int seconds) {
 		if (seconds < 0) {
-			return "Invalid value";
+			return INVALID_VALUE_MESSAGE;
 		}
 		
 		int minutes = seconds / 60;
