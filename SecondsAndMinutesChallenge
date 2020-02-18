@@ -3,26 +3,55 @@
 public class SecondsAndMinutesChallenge {
 	public static void main(String[] args) {
 		System.out.println(getDurationString(75, 20));
-		System.out.println(getDurationString(95));
+		System.out.println(getDurationString(75, 0));
+		System.out.println(getDurationString(150));
+		System.out.println(getDurationString(120));
+
 	}
 	
-	public static String getDurationString(int minutes, int seconds) {
+	private static String getDurationString(int minutes, int seconds) {
 		if (minutes < 0 || seconds < 0 || seconds > 59) {
 			return "Invalid value";
 		}
 		
 		int hours = minutes / 60;
 		int remainingMinutes = minutes % 60;
-		return hours + "h " + remainingMinutes + "m " + seconds + "s";
+		
+		String hoursString = hours + "h";
+		if (hours < 10) {
+			hoursString = "0" + hoursString;
+		}
+		
+		String minutesString = remainingMinutes + "m";
+		if (minutes < 10) {
+			minutesString = "0" + minutesString;
+		}
+		
+		String secondsString = seconds + "s";
+		if (seconds < 10) {
+			secondsString = "0" + secondsString;
+		}
+		
+		return hoursString + " " + minutesString + " " + secondsString;
 	}
 	
-	public static String getDurationString(int seconds) {
+	private static String getDurationString(int seconds) {
 		if (seconds < 0) {
 			return "Invalid value";
 		}
 		
 		int minutes = seconds / 60;
 		int remainingSeconds = seconds % 60;
-		return minutes + "m " + remainingSeconds + "s";
+		
+		String minutesString = minutes + "m";
+		if (minutes < 10) {
+			minutesString = "0" + minutesString;
+		}
+		
+		String secondsString = remainingSeconds + "s";
+		if (seconds < 10) {
+			secondsString = "0" + secondsString;
+		}
+		return getDurationString(minutes, remainingSeconds);
 	}
 }
