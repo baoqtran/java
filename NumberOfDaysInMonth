@@ -1,0 +1,50 @@
+//Test leap year and number days in months
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println(isLeapYear(-1600));
+        System.out.println(isLeapYear(1600));
+        System.out.println(isLeapYear(2017));
+        System.out.println(isLeapYear(2000));
+        System.out.println();
+        System.out.println(getDaysInMonth(1,2020));
+        System.out.println(getDaysInMonth(2,2000));
+        System.out.println(getDaysInMonth(2,2018));
+        System.out.println(getDaysInMonth(-1,2000));
+        System.out.println(getDaysInMonth(1,-2000));
+    }
+
+    public static boolean isLeapYear(int year) {
+        if(year < 1 || year > 9999) {
+            return false;
+        } else if((year % 4 == 0) && (year % 100 != 0) || year % 400 == 0) {
+            return true;
+        } else
+            return false;
+    }
+
+    public static int getDaysInMonth(int month, int year) {
+        int days = 0;
+        if (month < 1 || month > 12 || year < 1 || year > 9999) {
+            return -1;
+        }
+
+        switch (month) {
+            case 2:
+                if (isLeapYear(year)) {
+                    days = 29;
+                } else {
+                    days = 28;
+                }
+                break;
+            case 4: case 6: case 9: case 11:
+                days = 30;
+                break;
+            default:
+                days = 31;
+                break;
+        }
+        return days;
+    }
+}
