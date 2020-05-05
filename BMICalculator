@@ -1,0 +1,51 @@
+/*BMI Calculator with Information
+by Bao Quoc Tran
+Source www.cdc.gov
+ */
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your height (in feet then inches followed by a space): ");
+        double heightInFeet = input.nextDouble();
+        double heightInInches = input.nextDouble();
+
+        System.out.println("Enter your weight (in lbs): ");
+        double weightInPounds = input.nextDouble();
+
+        //Convert To Inches
+        double heightConvertToInches = (heightInFeet * 12) + heightInInches;
+
+        //Display Result
+        double resultBMI = 703 * weightInPounds / Math.pow(heightConvertToInches, 2);
+        System.out.println("Your BMI: " + String.format("%.1f", resultBMI));
+        System.out.println();
+
+        //Condition BMI
+        if (resultBMI < 18.5) {
+            System.out.println("This indicating your weight is in the Underweight category for adults of your height.\n" +
+                    "For your height, a normal weight range would be from 108 to 145 pounds.\n" +
+                    "Talk with your healthcare provider to determine possible causes of " +
+                    "underweight and if you need to gain weight.");
+        } else if (resultBMI < 25 ) {
+            System.out.println("This indicating your weight is in the Normal category for adults of your height.\n" +
+                    "For your height, a normal weight range would be from 108 to 145 pounds.\n" +
+                    "Maintaining a healthy weight may reduce the risk of chronic diseases" +
+                    " associated with overweight and obesity.");
+        } else if (resultBMI < 30) {
+            System.out.println("This indicating your weight is in the Overweight category for adults of your height.\n" +
+                    "For your height, a normal weight range would be from 108 to 145 pounds.\n" +
+                    "People who are overweight or obese are at higher risk for chronic conditions " +
+                    "such as high blood pressure, diabetes, and high cholesterol.");
+        } else
+            System.out.println("This indicating your weight is in the Obese category for adults of your height.\n" +
+                    "For your height, a normal weight range would be from 108 to 145 pounds.\n" +
+                    "People who are overweight or obese are at higher risk for chronic conditions such as high blood" +
+                    " pressure, diabetes, and high cholesterol.\n" +
+                    "Anyone who is overweight should try to avoid gaining additional weight." + "\n" + "Additionally, " +
+                    "if you are overweight with other risk factors (such as high LDL cholesterol, low HDL cholesterol, " +
+                    "or high blood pressure)," + "\n" + "you should try to lose weight. Even a small weight loss " +
+                    "(just 10% of your current weight) may help lower the risk of disease. " +
+                    "Talk with your healthcare provider to determine appropriate ways to lose weight.");
+    }
+}
